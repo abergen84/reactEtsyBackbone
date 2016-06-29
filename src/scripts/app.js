@@ -73,6 +73,9 @@ var EtsyRouter = Backbone.Router.extend({
 				keywords: keywords
 			}
 		}).then(function(){
+			//create another render using the same listing view, and use the same key title here (listingColl), 
+			//but pass in the collection you call above. by using the same key title (listingColl), you can use
+			//it on the ListingView JSX
 			ReactDOM.render(<ListingsView listingsColl={searchCollection} />, document.querySelector('.container'))
 		})
 

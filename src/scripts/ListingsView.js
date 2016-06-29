@@ -35,10 +35,14 @@ var Header = React.createClass({
 	render: function(){
 		return (
 			<header className="headerContainer">
-				<h1>search etsy app</h1>
-				<input type="text" placeholder="search items" onKeyDown={this._handleClick} />
+				<div id="title">
+					<span>search</span><h1>etsy</h1><span>app</span>
+				</div>
+				<div id="search">
+					<input type="text" placeholder="search items" onKeyDown={this._handleClick} />
+				</div>
 			</header>
-			)
+		)
 	}
 })
 
@@ -87,7 +91,9 @@ var Listing = React.createClass({
 		return (
 			//place the onClick here like you would in regular JavaScript
 			<div className="item-box" onClick={this._handleClick} >
-				<h5>{listingModel.get('title')}</h5> {/*get the attribute for title*/}
+				<h3>{listingModel.get('title').substring(0,30)}</h3> {/*get the attribute for title*/}
+				<img src={listingModel.attributes.Images[0].url_170x135} />
+				<p>${listingModel.get('price')}</p>
 			</div>
 			)
 	}
